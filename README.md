@@ -1,2 +1,0 @@
-# FunctionLand
-A function plotter!
