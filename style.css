@@ -3,23 +3,53 @@
 	src: url(FiraCode.ttf);
 }
 
-p {
-	font-size: 16px;
-}
-
-span {
+* {
+	font-size: 18px;
 	font-family: Arial;
 }
 
 code {
+	font-size: 90%;
 	font-family: FiraCode;
 	border-radius: 3px;
-	padding: 2.72px;
+	padding: 2px;
 	background: #bdc9db;
 }
 
 li:not(:last-child) { 
 	margin-bottom: 15px;  
+}
+
+button {
+	font-size: 22px;
+	
+	display: block;
+	margin: auto;
+	
+	color: white;
+	background-color: #1f88ff;
+	border-radius: 5px;
+	border: none;
+	
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+button:hover {
+	background-color: #1f75ff;
+	cursor: pointer;
+}
+
+button:focus { outline: 0; }
+
+button:active {
+	background-color: #1f5bff;
+	outline: 0;
 }
 
 canvas {

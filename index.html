@@ -5,47 +5,52 @@
 	</head>
 	
 	<body>
+		<canvas id="FLand" width="600" height="400"></canvas>
+		
+		<button onclick="flatten_func()">Render 2d function!</button>
+		
 		<ul>
 			<li>
-				<span>Diagonals: </span>
+				Diagonals:
 				<code>hue(x + y)</code>
 			</li>
 			<li>
-				<span>The color spectrum: </span>
+				The color spectrum:
 				<code>hue(x / w * 360)</code>
 			</li>
 			<li>
-				<span>Diamond: </span>
-				<code>hue(((Math.abs(x - (w / 2)) + Math.abs(y - (h / 2))) / 2) / 0.875 + 170)</code>
+				Diamond:
+				<code>hue((Math.abs(x - w / 2) + Math.abs(y - h / 2)) / 2 / 0.875 + 170)</code>
 			</li>
 			<li>
-				<span>Sine wave: </span>
-				<code>hue(Math.min(Math.abs((y - (h / 2)) - Math.round(Math.sin((x / 100) * Math.PI) * 35)) + 180, 240))</code>
+				Sine wave:
+				<code>hue(Math.min(Math.abs(y - h / 2 - Math.round(Math.sin(x / 100 * Math.PI) * 35)) + 180, 240))</code>
 			</li>
 			<li>
-				<span>Red is distance in x, blue is distance in y: </span>
-				<code>[Math.abs(x - (w / 2)), 0, Math.abs(y - (h / 2))]</code>
+				Red is distance in x, blue is distance in y:
+				<code>[Math.abs(x - w / 2), 0, Math.abs(y - h / 2)]</code>
 			</li>
 			<li>
-				<span>Circle: </span>
-				<code>hue(Math.round(Math.sqrt(((x - (w / 2))**2 + (y - (h / 2))**2))) / 1.25 + 170)</code>
+				Circle:
+				<code>hue(Math.round(Math.sqrt(((x - w / 2)**2 + (y - h / 2)**2))) / 1.25 + 170)</code>
 			</li>
 			<li>
-				<span>Square: </span>
-				<code>hue(Math.max(Math.abs((w / 2) - x), Math.abs((h / 2) - y)) + 170)</code>
+				Square:
+				<code>hue(Math.max(Math.abs(w / 2 - x), Math.abs(h / 2 - y)) + 170)</code>
 			</li>
 			<li>
-				<span>Beveled square: </span>
-				<code>hue(Math.max(Math.max(Math.abs((w / 2) - x), Math.abs((h / 2) - y)), ((Math.abs(x - (w / 2)) + Math.abs(y - (h / 2))) / 2) / 0.875) + 170)</code>
+				Beveled square:
+				<code>hue(Math.max(Math.max(Math.abs(w / 2 - x), Math.abs(h / 2 - y)), (Math.abs(x - w / 2) + Math.abs(y - h / 2)) / 2 / 0.875) + 170)</code>
 			</li>
 			<li>
-				<span>8-pointed star: </span>
-				<code>hue(Math.min((Math.max(Math.abs((w / 2) - x), Math.abs((h / 2) - y)) / 1.0625), ((Math.abs(x - (w / 2)) + Math.abs(y - (h / 2))) / 2) / 0.75) + 170)</code>
+				8-pointed star:
+				<code>hue(Math.min(Math.max(Math.abs(w / 2 - x), Math.abs(h / 2 - y)) / 1.0625, (Math.abs(x - w / 2) + Math.abs(y - h / 2)) / 2 / 0.75) + 170)</code>
+			</li>
+			<li>
+				Checkerboard pattern:
+				<code>Array(3).fill(0).map((_, i) => (Math.floor(x / 20) % 2 == Math.floor(y / 20) % 2) * 255 + hue(x + y)[i] / 1.5)</code>
 			</li>
 		</ul>
-		<button onclick="flatten_func()">Render 2d function!</button>
-		
-		<canvas id="FLand" width="600" height="400"></canvas>
 		
 		<script src="FunctionLand.js"></script>
 	</body>
