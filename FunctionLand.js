@@ -1,5 +1,5 @@
 function map_x_to_y(val, min1, max1, min2, max2) {
-	return (((val - min1) / (max1 - min1)) * (max2 - min2)) + min2;
+	return (val - min1) / (max1 - min1) * (max2 - min2) + min2;
 }
 
 function hue(given) {
@@ -46,9 +46,10 @@ function hue(given) {
 	return [Math.round(red), Math.round(green), Math.round(blue)];
 }
 
-screen = new Canvas("FLand", 600, 400);
+screen = document.getElementById("FLand");
+ctx = screen.getContext("2d");
 
-FLand = screen.draw.createImageData(screen.width, screen.height);
+FLand = ctx.createImageData(screen.width, screen.height);
 
 w = FLand.width;
 h = FLand.height;
@@ -66,5 +67,5 @@ function flatten_func() {
 		}
 	}
 	
-	screen.draw.putImageData(FLand, 0, 0);
+	ctx.putImageData(FLand, 0, 0);
 }

@@ -4,6 +4,25 @@
 }
 
 p {
-	font-family: FiraCode;
 	font-size: 16px;
+}
+
+span {
+	font-family: Arial;
+}
+
+code {
+	font-family: FiraCode;
+	border-radius: 3px;
+	padding: 2.72px;
+	background: #bdc9db;
+}
+
+li:not(:last-child) { 
+	margin-bottom: 15px;  
+}
+
+canvas {
+	display: block;
+	margin: auto;
 }
